@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steven Orechow - ICT 443 016 - JavaScript Advanced - Assignment 3 "To-Do List"</title>
+
+    <!-- jQuery UI CSS-->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <!-- jQuery UI JS-->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+    <!-- Google Visualization Library -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- Water CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+
+</head>
+
+<body>
+
+    <!-- Hide Tasks - Overlay -->
+    <div id="hide_tasks_overlay">
+        <h1>Tasks are hidden!</h1>
+        <button onclick="hide_all_tasks(false)">View Tasks</button>
+    </div>
+
+    <div id="quick_action_buttons">
+        <button style="background:#0096bf80" id="show_form">Add A Task</button>
+        <button style="background:#ffc107ad ;" onclick="hide_all_tasks(true)">Hide Tasks</button>
+        <button style="background:#f44336ad ;" onclick="delete_all_tasks()">Clear Tasks</button>
+    </div>
+
+    <!-- Add a task / Edit a task - Form -->
+    <form id="add_a_task_form" action="javascript:void(0);">
+
+        <fieldset>
+
+            <legend>Add a new task</legend>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name">
+
+            <label for="description">Description:</label>
+            <textarea id="description"></textarea>
+
+            <label for="date">Date:</label>
+            <input id="date">
+
+
+            <label for="urgent">
+                <input type="checkbox" id="urgent" value="urgent">
+                This task is urgent
+            </label>
+
+            <label for="category">Category:</label>
+            <select id="category">
+            </select>
+
+            <!-- category's options -->
+            <div id="category_options"></div>
+
+            <label for="order">Task order (<span id="order_number"></span>):</label>
+            <input type="range" min="1" id="order">
+
+            <!-- empty inputs - error -->
+            <p id="empty_inputs_error" style="color:crimson">All fields are required!</p>
+
+            <br>
+
+            <button id="add_task">Add task</button>
+            <button id="hide_add_a_task_form">Cancel</button>
+
+        </fieldset>
+
+    </form>
+
+    <!-- Display all tasks -->
+    <div id="display_tasks">
+        <h1>Tasks</h1>
+        <ul id="tasks"></ul>
+    </div>
+
+    <!-- Display a task -->
+    <div id="display_task"></div>
+
+    <div id="charts">
+        <!-- Bar Chart -->
+        <div id="bar_chart"></div>
+
+        <!-- Pie Chart -->
+        <div id="pie_chart"></div>
+    </div>
+
+    
+
+    <!-- Charts -->
+    <script src="charts.js"></script>
+
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+
+</body>
+
+</html>
