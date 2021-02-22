@@ -7,7 +7,7 @@ var categories = {
         Class: '',
         Professor: ''
     },
-    Grocery List: {
+    Grocery: {
         Store: ''
     },
     Sports: {
